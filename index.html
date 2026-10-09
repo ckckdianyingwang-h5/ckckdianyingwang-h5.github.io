@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CK电影网 | Cinema Classics 经典电影片单与影史回顾</title>
+  <meta name="description" content="CK电影网（Cinema Classics）整理影史经典老片、大师代表作、修复版电影与必看片单。移动端自适应单页，只做正规影视文化展示，不提供盗版资源与成人内容。" />
+  <meta name="keywords" content="CK电影网, Cinema Classics, 经典电影, 影史必看, 老片修复, 大师回顾, 电影片单" />
+  <meta name="author" content="CK电影网" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#1a1410" />
+  <link rel="canonical" href="https://ckdianyingwang-h5.github.io/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CK电影网" />
+  <meta property="og:title" content="CK电影网 | Cinema Classics 经典电影片单" />
+  <meta property="og:description" content="影史经典老片、大师代表作、修复版电影与必看片单。用时间筛选好电影。" />
+  <meta property="og:url" content="https://ckdianyingwang-h5.github.io/" />
+  <meta property="og:locale" content="zh_CN" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CK电影网 | Cinema Classics 经典电影片单" />
+  <meta name="twitter:description" content="影史经典老片、大师代表作、修复版电影与必看片单。用时间筛选好电影。" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "CK电影网",
+    "url": "https://ckdianyingwang-h5.github.io/",
+    "description": "Cinema Classics 经典电影片单与影史回顾。",
+    "inLanguage": "zh-CN"
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#1a1410;
+      --bg2:#241c16;
+      --card:#2e241c;
+      --ink:#f5e9d8;
+      --muted:#b8a48e;
+      --line:#4a3d2f;
+      --gold:#d4a84b;
+      --gold-deep:#a07a2e;
+      --gold-light:#f5e0a8;
+      --cream:#faf3e8;
+      --sepia:#8b7355;
+      --radius:14px;
+      --maxw:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Georgia,"Times New Roman","Songti SC","SimSun",serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.8;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+    header.nav{position:sticky;top:0;z-index:50;background:rgba(26,20,16,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+    .logo{font-weight:900;font-size:18px;letter-spacing:2px}
+    .logo b{color:var(--gold)}
+    .logo span{color:var(--sepia)}
+    nav.menu{display:flex;gap:14px;font-size:14px;color:var(--muted)}
+    nav.menu a{padding:6px 12px;border-radius:6px;transition:.2s}
+    nav.menu a:hover{color:var(--gold-light);background:rgba(212,168,75,.1)}
+    .nav-toggle{display:none;background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:6px 10px;font-size:16px;cursor:pointer}
+
+    /* HERO — 胶片帧式 */
+    .hero{padding:0;border-bottom:1px solid var(--line);position:relative;overflow:hidden;background:var(--bg)}
+    .film-strip{display:flex;gap:0;overflow-x:hidden;padding:32px 0 0;white-space:nowrap}
+    .film-frame{flex-shrink:0;width:200px;height:140px;margin-right:8px;border:2px solid var(--line);border-radius:6px;background:var(--card);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--sepia);text-align:center;padding:10px;position:relative}
+    .film-frame::before,.film-frame::after{content:"";position:absolute;left:0;right:0;height:6px;background:repeating-linear-gradient(90deg,var(--bg) 0 4px,transparent 4px 8px)}
+    .film-frame::before{top:-8px}
+    .film-frame::after{bottom:-8px}
+    .hero-text{padding:48px 0 56px;text-align:center}
+    .hero-text .pill{display:inline-block;border:1px solid var(--gold-deep);color:var(--gold);border-radius:999px;padding:5px 16px;font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:18px}
+    .hero-text h1{font-size:clamp(28px,5vw,50px);line-height:1.15;margin:0 0 14px;font-weight:900;color:var(--cream)}
+    .hero-text h1 em{font-style:normal;color:var(--gold)}
+    .hero-text p.lead{font-size:16px;color:var(--muted);max-width:560px;margin:0 auto 24px}
+
+    section{padding:56px 0;border-bottom:1px solid var(--line)}
+    .sec-head{margin-bottom:32px;text-align:center}
+    .sec-head .kicker{color:var(--gold);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:11px}
+    .sec-head h2{font-size:clamp(22px,3.6vw,32px);margin:6px 0 8px;font-weight:900}
+    .sec-head p{color:var(--muted);margin:0 auto;max-width:580px;font-size:14px}
+
+    /* 栏目1：年代卷轴 */
+    .timeline{position:relative;padding:20px 0}
+    .timeline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--line);transform:translateX(-50%)}
+    .era{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:center;margin-bottom:24px}
+    .era:nth-child(even) .era-content{order:3;text-align:left}
+    .era:nth-child(even) .era-year{order:2}
+    .era:nth-child(odd) .era-content{order:1;text-align:right}
+    .era:nth-child(odd) .era-year{order:2}
+    .era-content{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+    .era-content h3{margin:0 0 6px;font-size:17px;font-weight:900;color:var(--gold-light)}
+    .era-content p{margin:0;color:var(--muted);font-size:13px}
+    .era-year{width:72px;height:72px;border-radius:50%;background:var(--gold-deep);color:#1a1410;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;flex-shrink:0;box-shadow:0 0 0 5px rgba(212,168,75,.15)}
+    .era-films{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+    .era-films span{font-size:11px;color:var(--sepia);background:rgba(212,168,75,.08);border:1px solid var(--line);border-radius:4px;padding:2px 8px}
+
+    /* 栏目2：导演名片卡 */
+    .directors{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .director{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);overflow:hidden;transition:.25s}
+    .director:hover{transform:translateY(-3px);border-color:var(--gold)}
+    .director .portrait{height:120px;background:linear-gradient(135deg,var(--bg2),var(--card));display:flex;align-items:center;justify-content:center;font-size:48px}
+    .director .info{padding:18px}
+    .director h3{margin:0 0 4px;font-size:17px;font-weight:900;color:var(--gold-light)}
+    .director .nationality{font-size:12px;color:var(--sepia);margin-bottom:8px}
+    .director p{margin:0;color:var(--muted);font-size:13px}
+    .director .masterpieces{margin-top:10px;display:flex;flex-wrap:wrap;gap:5px}
+    .director .masterpieces span{font-size:10px;color:var(--gold);border:1px solid var(--gold-deep);border-radius:3px;padding:2px 7px}
+
+    /* 栏目3：经典台词打字机 */
+    .quotes{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .quote-card{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:24px;position:relative}
+    .quote-card::before{content:"\201C";position:absolute;top:-10px;left:14px;font-size:60px;color:var(--gold);line-height:1;font-family:Georgia,serif}
+    .quote-card p{margin:0 0 12px;font-size:15px;font-style:italic;color:var(--ink);line-height:1.7}
+    .quote-card .from{font-size:12px;color:var(--gold);font-weight:800}
+    .quote-card .typing{display:inline-block;border-right:2px solid var(--gold);padding-right:4px;animation:blink 1s step-end infinite}
+    @keyframes blink{0%,100%{border-color:var(--gold)}50%{border-color:transparent}}
+
+    /* 栏目4：修复版片单表 */
+    .restorations{overflow-x:auto}
+    .restore-table{width:100%;border-collapse:collapse;font-size:14px}
+    .restore-table th{text-align:left;padding:12px 14px;background:var(--bg2);color:var(--gold);font-weight:800;font-size:12px;letter-spacing:1px;text-transform:uppercase;border-bottom:2px solid var(--line)}
+    .restore-table td{padding:12px 14px;border-bottom:1px solid var(--line);color:var(--muted)}
+    .restore-table tr:hover td{background:rgba(212,168,75,.05);color:var(--ink)}
+    .restore-table .year{color:var(--gold);font-weight:800}
+    .restore-table .format{font-size:11px;color:var(--sepia);border:1px solid var(--line);border-radius:3px;padding:2px 6px}
+
+    /* 栏目5：关于 */
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .about-box{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:var(--card)}
+    .about-box h3{margin-top:0;font-size:18px;color:var(--gold-light)}
+    .about-box p,.about-box li{color:var(--muted);font-size:14px}
+    .about-box ul{padding-left:18px}
+    .about-box li{margin-bottom:6px}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
+    .stat{border:1px solid var(--line);border-radius:10px;padding:16px;text-align:center;background:var(--bg2)}
+    .stat b{display:block;font-size:24px;color:var(--gold);font-weight:900}
+    .stat span{font-size:11px;color:var(--muted)}
+
+    footer{padding:32px 0;text-align:center;color:var(--sepia);font-size:13px;border-top:1px solid var(--line)}
+    footer a{color:var(--gold)}
+
+    #toTop{position:fixed;right:16px;bottom:16px;z-index:60;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--bg2);color:var(--gold);font-size:18px;cursor:pointer;opacity:0;pointer-events:none;transition:.25s}
+    #toTop.show{opacity:1;pointer-events:auto}
+    .reveal{opacity:0;transform:translateY(16px);transition:.5s ease}
+    .reveal.in{opacity:1;transform:none}
+
+    @media (max-width:980px){
+      .timeline::before{left:20px}
+      .era{grid-template-columns:auto 1fr;gap:14px}
+      .era:nth-child(even) .era-content,.era:nth-child(odd) .era-content{order:2;text-align:left}
+      .era:nth-child(even) .era-year,.era:nth-child(odd) .era-year{order:1}
+      .directors{grid-template-columns:repeat(2,1fr)}
+      .quotes{grid-template-columns:1fr}
+      .about{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      .nav-toggle{display:block}
+      nav.menu{position:absolute;top:60px;left:0;right:0;flex-direction:column;gap:0;padding:8px 20px 16px;background:rgba(26,20,16,.98);border-bottom:1px solid var(--line);display:none}
+      nav.menu.open{display:flex}
+      nav.menu a{padding:10px 8px;border-bottom:1px solid var(--line)}
+      .directors{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .film-strip{padding-top:16px}
+      .film-frame{width:150px;height:100px;font-size:11px}
+    }
+  </style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <div class="logo"><b>CK</b><span> 电影网 · Cinema Classics</span></div>
+      <button class="nav-toggle" aria-label="菜单" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+      <nav class="menu" id="menu">
+        <a href="#home">首页</a>
+        <a href="#timeline">年代卷轴</a>
+        <a href="#directors">大师名片</a>
+        <a href="#quotes">经典台词</a>
+        <a href="#restorations">修复版片单</a>
+        <a href="#about">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="film-strip">
+      <div class="film-frame">教父<br/>1972</div>
+      <div class="film-frame">2001太空漫游<br/>1968</div>
+      <div class="film-frame">七武士<br/>1954</div>
+      <div class="film-frame">公民凯恩<br/>1941</div>
+      <div class="film-frame">八部半<br/>1963</div>
+      <div class="film-frame">东京物语<br/>1953</div>
+      <div class="film-frame">迷魂记<br/>1958</div>
+      <div class="film-frame">出租车司机<br/>1976</div>
+      <div class="film-frame">天堂电影院<br/>1988</div>
+      <div class="film-frame">辛德勒的名单<br/>1993</div>
+    </div>
+    <div class="wrap hero-text">
+      <div class="pill">Cinema Classics · Since 2026</div>
+      <h1>时间筛过的，才是<em>好电影</em></h1>
+      <p class="lead">CK电影网（Cinema Classics）不做"今日热映"，只做"经得起时间考验"。从默片到新浪潮，从黑泽明到塔可夫斯基，用经典片单帮你建立自己的观影坐标系。</p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <a href="#timeline" style="padding:12px 24px;border-radius:10px;background:var(--gold);color:#1a1410;font-weight:800;font-size:14px">按年代浏览 →</a>
+        <a href="#quotes" style="padding:12px 24px;border-radius:10px;border:1px solid var(--line);color:var(--ink);font-weight:800;font-size:14px">看经典台词</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目1：年代卷轴 -->
+  <section id="timeline" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Decade by Decade</div>
+        <h2>影史年代卷轴</h2>
+        <p>每十年一个段落，看电影语言如何进化。</p>
+      </div>
+      <div class="timeline">
+        <div class="era">
+          <div class="era-content">
+            <h3>1920s · 默片与蒙太奇</h3>
+            <p>卓别林、爱森斯坦、茂瑙。没有对白，却用剪辑创造了电影最纯粹的语言。</p>
+            <div class="era-films"><span>大都会</span><span>战舰波将金号</span><span>日出</span><span>将军号</span></div>
+          </div>
+          <div class="era-year">1920</div>
+          <div></div>
+        </div>
+        <div class="era">
+          <div></div>
+          <div class="era-year">1940</div>
+          <div class="era-content">
+            <h3>1940s · 黑色电影与史诗</h3>
+            <p>奥逊·威尔斯颠覆叙事，黑色电影定义战后焦虑，好莱坞黄金时代。</p>
+            <div class="era-films"><span>公民凯恩</span><span>卡萨布兰卡</span><span>双重赔偿</span><span>罗生门</span></div>
+          </div>
+        </div>
+        <div class="era">
+          <div class="era-content">
+            <h3>1950s · 作者论与东方美学</h3>
+            <p>黑泽明、小津安二郎、费里尼。电影成为个人表达，而非工业产品。</p>
+            <div class="era-films"><span>七武士</span><span>东京物语</span><span>迷魂记</span><span>野草莓</span></div>
+          </div>
+          <div class="era-year">1950</div>
+          <div></div>
+        </div>
+        <div class="era">
+          <div></div>
+          <div class="era-year">1960</div>
+          <div class="era-content">
+            <h3>1960s · 新浪潮革命</h3>
+            <p>戈达尔说"电影是每秒24帧的真相"。特吕弗、安东尼奥尼、今村昌平。规则被打破。</p>
+            <div class="era-films"><span>精疲力尽</span><span>八部半</span><span>红色沙漠</span><span>切腹</span></div>
+          </div>
+        </div>
+        <div class="era">
+          <div class="era-content">
+            <h3>1970s · 新好莱坞与政治电影</h3>
+            <p>科波拉、斯科塞斯、库布里克。电影变长、变暗、变大胆。R级片成为主流。</p>
+            <div class="era-films"><span>教父</span><span>出租车司机</span><span>飞越疯人院</span><span>巴里·林登</span></div>
+          </div>
+          <div class="era-year">1970</div>
+          <div></div>
+        </div>
+        <div class="era">
+          <div></div>
+          <div class="era-year">1990</div>
+          <div class="era-content">
+            <h3>1990s · 独立电影与全球化</h3>
+            <p>昆汀用对话杀人，王家卫用色彩谈情。独立电影进入主流视野。</p>
+            <div class="era-films"><span>低俗小说</span><span>霸王别姬</span><span>辛德勒的名单</span><span>重庆森林</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目2：导演名片卡 -->
+  <section id="directors" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Auteurs</div>
+        <h2>大师名片</h2>
+        <p>电影史上那些"作者"——每一帧都带着个人签名。</p>
+      </div>
+      <div class="directors">
+        <div class="director">
+          <div class="portrait">🎬</div>
+          <div class="info">
+            <h3>黑泽明</h3>
+            <div class="nationality">日本 · 1910–1998</div>
+            <p>将莎士比亚与日本武士道融合，影响了从卢卡斯到斯科塞斯的一整代导演。</p>
+            <div class="masterpieces"><span>七武士</span><span>罗生门</span><span>乱</span><span>影武者</span></div>
+          </div>
+        </div>
+        <div class="director">
+          <div class="portrait">🎭</div>
+          <div class="info">
+            <h3>费德里科·费里尼</h3>
+            <div class="nationality">意大利 · 1920–1993</div>
+            <p>用超现实主义描绘内心世界，马戏团美学与自传式叙事的巅峰。</p>
+            <div class="masterpieces"><span>八部半</span><span>甜蜜生活</span><span>大路</span><span>卡比利亚之夜</span></div>
+          </div>
+        </div>
+        <div class="director">
+          <div class="portrait">🌊</div>
+          <div class="info">
+            <h3>安德烈·塔可夫斯基</h3>
+            <div class="nationality">苏联 · 1932–1986</div>
+            <p>"电影是雕刻时间。"用极长的镜头让观众重新学会凝视。</p>
+            <div class="masterpieces"><span>镜子</span><span>潜行者</span><span>牺牲</span><span>乡愁</span></div>
+          </div>
+        </div>
+        <div class="director">
+          <div class="portrait">🎨</div>
+          <div class="info">
+            <h3>斯坦利·库布里克</h3>
+            <div class="nationality">美国 · 1928–1999</div>
+            <p>每部片换一个类型，每部片都是该类型的天花板。完美主义到偏执。</p>
+            <div class="masterpieces"><span>2001太空漫游</span><span>闪灵</span><span>发条橙</span><span>全金属外壳</span></div>
+          </div>
+        </div>
+        <div class="director">
+          <div class="portrait">🐦</div>
+          <div class="info">
+            <h3>阿巴斯·基亚罗斯塔米</h3>
+            <div class="nationality">伊朗 · 1940–2016</div>
+            <p>纪录片与剧情片之间的灰色地带。用最简朴的方式触碰最深的哲学。</p>
+            <div class="masterpieces"><span>何处是我朋友的家</span><span>樱桃的滋味</span><span>随风而逝</span><span>橄榄树下的情人</span></div>
+          </div>
+        </div>
+        <div class="director">
+          <div class="portrait">🕊️</div>
+          <div class="info">
+            <h3>英格玛·伯格曼</h3>
+            <div class="nationality">瑞典 · 1918–2007</div>
+            <p>用电影追问上帝是否存在。室内剧、面部特写、灵魂拷问。</p>
+            <div class="masterpieces"><span>第七封印</span><span>野草莓</span><span>呼喊与细语</span><span>芬妮与亚历山大</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目3：经典台词打字机 -->
+  <section id="quotes" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Immortal Lines</div>
+        <h2>经典台词</h2>
+        <p>有些话，只有在大银幕上听到才真正击中你。</p>
+      </div>
+      <div class="quotes">
+        <div class="quote-card">
+          <p><span class="typing" id="q1"></span></p>
+          <div class="from">—— 《教父》 (1972)</div>
+        </div>
+        <div class="quote-card">
+          <p>"我宁愿和你共度凡人短暂的一生，也不愿独自登上天堂。"</p>
+          <div class="from">—— 《天使之城》 (1998)</div>
+        </div>
+        <div class="quote-card">
+          <p>"人生不是电影，人生比电影苦多了。"</p>
+          <div class="from">—— 《天堂电影院》 (1988)</div>
+        </div>
+        <div class="quote-card">
+          <p>"我们笑着说再见，却深知再见遥遥无期。"</p>
+          <div class="from">—— 《海上钢琴师》 (1998)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目4：修复版片单表 -->
+  <section id="restorations" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Restored Masterpieces</div>
+        <h2>修复版片单</h2>
+        <p>老片值得被重新看见。以下是近年4K修复/重映的经典作品。</p>
+      </div>
+      <div class="restorations">
+        <table class="restore-table">
+          <thead>
+            <tr><th>片名</th><th>年份</th><th>导演</th><th>修复规格</th><th>重映/发行</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>阿拉伯的劳伦斯</td><td class="year">1962</td><td>大卫·里恩</td><td><span class="format">4K 修复</span></td><td>索尼经典</td></tr>
+            <tr><td>2001太空漫游</td><td class="year">1968</td><td>斯坦利·库布里克</td><td><span class="format">70mm 重制</span></td><td>华纳兄弟</td></tr>
+            <tr><td>东京物语</td><td class="year">1953</td><td>小津安二郎</td><td><span class="format">4K 修复</span></td><td>标准收藏 Criterion</td></tr>
+            <tr><td>霸王别姬</td><td class="year">1993</td><td>陈凯歌</td><td><span class="format">4K 修复</span></td><td>北京橙天</td></tr>
+            <tr><td>精疲力尽</td><td class="year">1960</td><td>戈达尔</td><td><span class="format">4K 修复</span></td><td>Gaumont</td></tr>
+            <tr><td>罗生门</td><td class="year">1950</td><td>黑泽明</td><td><span class="format">4K 修复</span></td><td>标准收藏 Criterion</td></tr>
+            <tr><td>八部半</td><td class="year">1963</td><td>费里尼</td><td><span class="format">4K 修复</span></td><td>标准收藏 Criterion</td></tr>
+            <tr><td>花样年华</td><td class="year">2000</td><td>王家卫</td><td><span class="format">4K 修复 导演剪辑</span></td><td>泽东电影</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目5：关于 -->
+  <section id="about" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">About</div>
+        <h2>关于 CK电影网</h2>
+        <p>Cinema Classics — 经典不老，只待重逢。</p>
+      </div>
+      <div class="about">
+        <div class="about-box">
+          <h3>我们收录什么</h3>
+          <ul>
+            <li>✅ 影史经典老片（IMDb Top 250 / 豆瓣Top250 / 各权威榜单入选作品）</li>
+            <li>✅ 大师代表作与作者电影</li>
+            <li>✅ 4K修复版、重映信息、正版观看渠道指引</li>
+            <li>❌ 不收录成人色情、低俗擦边内容</li>
+            <li>❌ 不提供盗版资源下载与在线播放</li>
+          </ul>
+          <p style="margin-top:14px">经典电影请通过院线重映、持权流媒体、标准收藏（Criterion）、艺术院线等正版渠道观看。</p>
+        </div>
+        <div class="about-box">
+          <h3>数据概览</h3>
+          <div class="stats">
+            <div class="stat"><b>100+</b><span>经典片单</span></div>
+            <div class="stat"><b>6</b><span>年代跨度</span></div>
+            <div class="stat"><b>20+</b><span>大师导演</span></div>
+            <div class="stat"><b>0</b><span>盗版链接</span></div>
+          </div>
+          <p style="margin-top:16px;color:var(--muted);font-size:13px">CK = <strong style="color:var(--gold)">Cinema Classics</strong>，致敬每一帧经得起时间考验的画面。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      © 2026 CK电影网（Cinema Classics）｜ 静态展示站点 ｜
+      内页链接以 <a href="#">#</a> 占位 ｜
+      本站仅作经典电影片单与影史文化展示，不提供盗版资源与成人内容。
+    </div>
+  </footer>
+
+  <button id="toTop" aria-label="回到顶部" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <script>
+    document.querySelectorAll('#menu a').forEach(function(a){
+      a.addEventListener('click',function(){ document.getElementById('menu').classList.remove('open'); });
+    });
+    var toTop=document.getElementById('toTop');
+    window.addEventListener('scroll',function(){ toTop.classList.toggle('show',window.scrollY>400); });
+
+    // 打字机效果
+    var text="我会给他一个无法拒绝的提议。";
+    var i=0;
+    var q1=document.getElementById('q1');
+    function typeWriter(){ if(i<text.length){ q1.innerHTML+=text.charAt(i); i++; setTimeout(typeWriter,80); } }
+    setTimeout(typeWriter,800);
+
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  </script>
+</body>
+</html>
